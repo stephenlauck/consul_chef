@@ -41,6 +41,8 @@ template '/etc/consul.d/consul-server.json' do
   owner 'consul'
   group 'consul'
   mode '0644'
+  notifies :reload, 'systemd_unit[consul.service]'
+  notifies :restart, 'systemd_unit[consul.service]'
 end
 
 package 'dnsmasq'
@@ -74,4 +76,10 @@ systemd_unit 'consul.service' do
   EOU
 
   action [:create, :enable, :start]
+  notifies :run, 'execute[join cluster]'
+end
+
+execute 'join cluster' do
+  command "#{node[:consul][:bin_dir]}/consul join #{node[:consul][:join_ip]}"
+  action :run
 end

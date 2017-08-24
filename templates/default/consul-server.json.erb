@@ -1,6 +1,11 @@
 {
+
   "data_dir": "/opt/consul/data",
+  "ui": true,
   "client_addr": "0.0.0.0",
+  <% if node[:consul][:bind_addr] %>
+  "bind_addr": "<%= node[:consul][:bind_addr] %>",
+  <% end %>
   "server": true,
   <% if node[:consul][:cluster_size] %>
   "bootstrap_expect": <%= node[:consul][:cluster_size] %>

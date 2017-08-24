@@ -5,3 +5,7 @@
 
 ### Validate
 Confirm Consul's log with `sudo journalctl -u consul`
+
+or
+
+`consul monitor`

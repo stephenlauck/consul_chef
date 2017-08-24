@@ -20,6 +20,12 @@ suites:
   - name: default
     run_list:
       - recipe[consul_chef::install]
+    driver:
+      network:
+        - ['private_network', {ip: '10.0.20.10'}]
+      customize:
+        memory: 2048
+        cpus: 1
     verifier:
       inspec_tests:
         - test/smoke/default
@@ -28,3 +34,4 @@ suites:
         version: '0.9.2'
         zip_file: 'consul_0.9.2_linux_amd64.zip'
         download_url: 'https://releases.hashicorp.com/consul/0.9.2/consul_0.9.2_linux_amd64.zip'
+        advertise_addr: '10.0.20.10'
