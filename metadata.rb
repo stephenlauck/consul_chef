@@ -1,9 +1,9 @@
 name 'consul_chef'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'All Rights Reserved'
-description 'Installs/Configures consul_chef'
-long_description 'Installs/Configures consul_chef'
+maintainer 'Stephen Lauck'
+maintainer_email 'stephen@hashicorp.com'
+license 'Apache-2.0'
+description 'Installs/Configures Hashicorp Consul'
+
 version '0.1.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 

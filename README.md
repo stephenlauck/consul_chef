@@ -1,4 +1,6 @@
 # consul_chef
 
-TODO: Enter the cookbook description here.
+### Install
 
+### Validate
+Confirm Consul's log with `sudo journalctl -u consul`
